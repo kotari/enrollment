@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { EnrollmentService } from '../../enrollment.service';
 
@@ -10,6 +11,7 @@ import { EnrollmentService } from '../../enrollment.service';
 })
 export class AddComponent implements OnInit {
   changesSaved = false;
+  @ViewChild('f') form: NgForm;
   firstName = '';
   lastName = '';
   middleName = '';
@@ -26,18 +28,30 @@ export class AddComponent implements OnInit {
     this.changesSaved = true;
     console.log(this.firstName);
     console.log(this.lastName);
-    console.log("rajesh " + this.enrollmentSvc.dependents.length);
+    console.log('rajesh ' + this.enrollmentSvc.dependents.length);
+    // tslint:disable-next-line:max-line-length
     this.enrollmentSvc.dependents.push({firstName: this.firstName, lastName: this.lastName, middleName: this.middleName, suffix: this.suffix, ssn: this.ssn});
     console.log(this.enrollmentSvc.dependents.length);
     this.router.navigate(['/dependents']);
   }
 
-  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
-    if (this.firstName !== '' && !this.changesSaved) {
-      return confirm("Do you want to navigate without saving changes");
+  canDeactivate(form: NgForm): Observable<boolean> | Promise<boolean> | boolean {
+    console.log('in canDeactivate');
+    // console.log(form);
+    if (form.dirty && !this.changesSaved) {
+      return confirm('Do you want to navigate without saving changes');
     } else {
-      //this.enrollmentSvc.dependents.push()      
+      // this.enrollmentSvc.dependents.push()
       return true;
     }
+  }
+
+  onSubmit(form: NgForm) {
+    const obj = form.value;
+    // tslint:disable-next-line:max-line-length
+    this.enrollmentSvc.dependents.push({firstName: obj.firstName, lastName: obj.lastName, middleName: obj.middleName, suffix: obj.suffix, ssn: obj.ssn});
+    console.log(this.enrollmentSvc.dependents.length);
+    this.changesSaved = true;
+    this.router.navigate(['/dependents']);
   }
 }

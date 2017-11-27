@@ -1,9 +1,17 @@
 <div>
   <p>Add your dependent's information</p>
-  <input type="text" placeholder="First Name" [(ngModel)]="firstName"/>
-  <input type="text" placeholder="Middle Name" [(ngModel)]="middleName"/>
-  <input type="text" placeholder="Last Name" [(ngModel)]="lastName"/>
-  <input type="text" placeholder="Suffix (example: Sr, Jr, III)" [(ngModel)]="suffix"/>
-  <input type="text" placeholder="Socail Security Number" [(ngModel)]="ssn"/>
-  <button class="btn btn-default" (click)="onAddDependent()">Add dependent</button>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <!--<input type="text" placeholder="First Name" [(ngModel)]="firstName" class="form-control"/>
+    <input type="text" placeholder="Middle Name" [(ngModel)]="middleName" class="form-control"/>
+    <input type="text" placeholder="Last Name" [(ngModel)]="lastName" class="form-control"/>
+    <input type="text" placeholder="Suffix (example: Sr, Jr, III)" [(ngModel)]="suffix" class="form-control"/>
+    <input type="text" placeholder="Socail Security Number" [(ngModel)]="ssn" class="form-control"/>
+    <button class="btn btn-default" (click)="onAddDependent()">Add dependent</button>-->
+    <input type="text" placeholder="First Name" ngModel name="firstName" class="form-control"/>
+    <input type="text" placeholder="Middle Name" ngModel name="middleName" class="form-control"/>
+    <input type="text" placeholder="Last Name" ngModel name="lastName" class="form-control"/>
+    <input type="text" placeholder="Suffix (example: Sr, Jr, III)" ngModel name="suffix" class="form-control"/>
+    <input type="text" placeholder="Socail Security Number" ngModel name="ssn" class="form-control"/>
+    <button class="btn btn-default" type="submit">Add dependent</button>
+  </form>
 </div>

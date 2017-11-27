@@ -13,13 +13,13 @@ import { CanDeactivateGuard } from './dependents/add/can-deactivate-guard.servic
 const appPaths: Routes = [
     { path: '', component: HomeComponent},
     { path: 'msgs', component: MsgsComponent},
-    { path: 'dependents', component: DependentsComponent, 
-        //canActivate: [AuthGuard]
+    { path: 'dependents', component: DependentsComponent,
+        // canActivate: [AuthGuard]
         canActivateChild: [AuthGuard]
     },
-    { path: 'add', component:AddComponent, canDeactivate: [CanDeactivateGuard]},  
+    { path: 'add', component: AddComponent, canDeactivate: [CanDeactivateGuard]},
     { path: 'http-404', component: Http404Component},
-    { path: '**', redirectTo:'.http-404'}
+    { path: '**', redirectTo: '.http-404'}
     // { path: 'users', component: UsersComponent},
     // { path: 'users/:id/:name', component:UserComponent}
   ];
