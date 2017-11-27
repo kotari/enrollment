@@ -1,0 +1,12 @@
+<div>
+  Maria, will you be covering anyone other than yourself for health plans (Medical, Dental or Vision)?
+  <br />
+  Plan costs are based on whom you choose to cover.
+  <br />
+  <div *ngFor="let dependent of dependents; let i = index">
+    <button class="btn btn-success" >{{ dependent.firstName }}&nbsp;{{ dependent.lastName }}</button>
+  </div>
+  <br />
+  <button class="btn" (click)="addDependent()">Add Spouse or Dependent</button>
+  <router-outlet></router-outlet>
+</div>
