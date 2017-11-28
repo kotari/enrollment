@@ -16,16 +16,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard-service';
 import { CanDeactivateGuard } from './dependents/add/can-deactivate-guard.service';
+import { TobaccoComponent } from './tobacco/tobacco.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,    
-    HomeComponent, 
-    MsgsComponent, 
+    AppComponent,
+    HomeComponent,
+    MsgsComponent,
     DependentsComponent,
-    AddComponent, 
-    Http404Component
+    AddComponent,
+    Http404Component,
+    TobaccoComponent
   ],
   imports: [
     BrowserModule,

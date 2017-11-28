@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -9,6 +9,7 @@ import { AddComponent } from './dependents/add/add.component';
 import { Http404Component } from './http-404/http-404.component';
 import { AuthGuard } from './auth-guard-service';
 import { CanDeactivateGuard } from './dependents/add/can-deactivate-guard.service';
+import { TobaccoComponent } from './tobacco/tobacco.component';
 
 const appPaths: Routes = [
     { path: '', component: HomeComponent},
@@ -18,9 +19,9 @@ const appPaths: Routes = [
         canActivateChild: [AuthGuard]
     },
     { path: 'add', component: AddComponent, canDeactivate: [CanDeactivateGuard]},
+    { path: 'tobacco', component: TobaccoComponent},
     { path: 'http-404', component: Http404Component},
     { path: '**', redirectTo: '.http-404'}
-    // { path: 'users', component: UsersComponent},
     // { path: 'users/:id/:name', component:UserComponent}
   ];
 

@@ -5,8 +5,11 @@
   <br />
   <div *ngFor="let dependent of dependents; let i = index">
     <button class="btn btn-success" >{{ dependent.firstName }}&nbsp;{{ dependent.lastName }}</button>
+    <br /><br />
   </div>
   <br />
   <button class="btn" (click)="addDependent()">Add Spouse or Dependent</button>
+  <br /><br />
+  <a class="btn btn-success" routerLink="/tobacco">Next</a>
   <router-outlet></router-outlet>
 </div>

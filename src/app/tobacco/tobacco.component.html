@@ -1,0 +1,13 @@
+<div>
+  Tell us about the tobacco usage of each covered family member
+  <hr/>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div *ngFor="let dependent of dependents; let i = index">
+          Does {{ dependent.firstName }} use tobacco?
+          <hr />
+      </div>
+  </form>
+  <br />
+  <a class="btn btn-success" routerLink="/dependents">Next</a>
+  <router-outlet></router-outlet>
+</div>
