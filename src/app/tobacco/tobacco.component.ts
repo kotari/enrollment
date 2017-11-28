@@ -40,12 +40,6 @@ export class TobaccoComponent implements OnInit {
     }
   }
 
-  tobaccoUsageChanged(index: number, obj: Object) {
-    console.log('tobacco usage changed ' + index );
-    console.log(obj);
-    // this.enrollmentSvc.dependents[index].tobaccoUsage = 
-  }
-
   onSubmit(form: NgForm) {
     const obj = form.value;
     // console.log(obj);

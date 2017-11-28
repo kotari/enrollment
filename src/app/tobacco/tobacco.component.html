@@ -7,7 +7,7 @@
           Does {{ dependent.firstName }} use tobacco?
         </div>
         <div class="col-xs-6 col-sm-5 col-md-4 col-sm-offset-1 col-md-offset-2" *ngIf="dependent.covered">
-          <select class="form-control" name="tobaccoUsage-{{ i }}" [(ngModel)]="tobaccoUsage[i]"  (change)="tobaccoUsageChanged(i, this)">
+          <select class="form-control" name="tobaccoUsage-{{ i }}" [(ngModel)]="tobaccoUsage[i]">
             <option *ngFor="let opt of tobaccoUsageOptions" [value]="opt.value">
                           {{ opt.name }}
             </option>
