@@ -2,12 +2,22 @@
   Tell us about the tobacco usage of each covered family member
   <hr/>
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-      <div *ngFor="let dependent of dependents; let i = index">
+      <div *ngFor="let dependent of dependents; let i = index" class="row">
+        <div class="col-xs-6 col-sm-5 col-md-4" *ngIf="dependent.covered">
           Does {{ dependent.firstName }} use tobacco?
-          <hr />
+        </div>
+        <div class="col-xs-6 col-sm-5 col-md-4 col-sm-offset-1 col-md-offset-2" *ngIf="dependent.covered">
+          <select class="form-control" name="tobaccoUsage-{{ i }}" [(ngModel)]="tobaccoUsage[i]"  (change)="tobaccoUsageChanged(i, this)">
+            <option *ngFor="let opt of tobaccoUsageOptions" [value]="opt.value">
+                          {{ opt.name }}
+            </option>
+            <!--<option value="No">No</option>
+            <option value="Yes">Yes</option> -->
+          </select>
+        </div>
       </div>
+      <button class="btn btn-success" type="submit">Next</button>
+      <router-outlet></router-outlet>
   </form>
-  <br />
-  <a class="btn btn-success" routerLink="/dependents">Next</a>
-  <router-outlet></router-outlet>
+  <br />  
 </div>

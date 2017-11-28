@@ -19,7 +19,7 @@ const appPaths: Routes = [
         canActivateChild: [AuthGuard]
     },
     { path: 'add', component: AddComponent, canDeactivate: [CanDeactivateGuard]},
-    { path: 'tobacco', component: TobaccoComponent},
+    { path: 'tobacco', component: TobaccoComponent, canDeactivate: [CanDeactivateGuard]},
     { path: 'http-404', component: Http404Component},
     { path: '**', redirectTo: '.http-404'}
     // { path: 'users/:id/:name', component:UserComponent}

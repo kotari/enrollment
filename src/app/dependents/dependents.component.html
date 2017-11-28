@@ -3,13 +3,15 @@
   <br />
   Plan costs are based on whom you choose to cover.
   <br />
-  <div *ngFor="let dependent of dependents; let i = index">
-    <button class="btn btn-success" >{{ dependent.firstName }}&nbsp;{{ dependent.lastName }}</button>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div *ngFor="let dependent of dependents; let i = index">
+      <button class="btn" ngClass="{{ dependent.covered ? 'btn-success' : 'btn-default' }}" (click)="toggleDependents([i])" type="button" >{{ dependent.firstName }}&nbsp;{{ dependent.lastName }}</button>
+      <br /><br />
+    </div>
+    <br />
+    <button class="btn" (click)="addDependent()">Add Spouse or Dependent</button>
     <br /><br />
-  </div>
-  <br />
-  <button class="btn" (click)="addDependent()">Add Spouse or Dependent</button>
-  <br /><br />
-  <a class="btn btn-success" routerLink="/tobacco">Next</a>
-  <router-outlet></router-outlet>
+    <button class="btn btn-success" type="submit">Next</button>
+    <router-outlet></router-outlet>
+  </form>
 </div>

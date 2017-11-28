@@ -30,7 +30,7 @@ export class AddComponent implements OnInit {
     console.log(this.lastName);
     console.log('rajesh ' + this.enrollmentSvc.dependents.length);
     // tslint:disable-next-line:max-line-length
-    this.enrollmentSvc.dependents.push({firstName: this.firstName, lastName: this.lastName, middleName: this.middleName, suffix: this.suffix, ssn: this.ssn});
+    this.enrollmentSvc.dependents.push({firstName: this.firstName, lastName: this.lastName, middleName: this.middleName, suffix: this.suffix, ssn: this.ssn, covered: true, tobaccoUsage: 'No'});
     console.log(this.enrollmentSvc.dependents.length);
     this.router.navigate(['/dependents']);
   }
@@ -49,7 +49,7 @@ export class AddComponent implements OnInit {
   onSubmit(form: NgForm) {
     const obj = form.value;
     // tslint:disable-next-line:max-line-length
-    this.enrollmentSvc.dependents.push({firstName: obj.firstName, lastName: obj.lastName, middleName: obj.middleName, suffix: obj.suffix, ssn: obj.ssn});
+    this.enrollmentSvc.dependents.push({firstName: obj.firstName, lastName: obj.lastName, middleName: obj.middleName, suffix: obj.suffix, ssn: obj.ssn, covered: true, tobaccoUsage: 'No'});
     console.log(this.enrollmentSvc.dependents.length);
     this.changesSaved = true;
     this.router.navigate(['/dependents']);

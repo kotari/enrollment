@@ -8,8 +8,7 @@ import { EnrollmentService } from './enrollment.service';
   providers: [EnrollmentService]
 })
 export class AppComponent implements OnInit {
-  
+
   ngOnInit() {
-   
   }
 }
