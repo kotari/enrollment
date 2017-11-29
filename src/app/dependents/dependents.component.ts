@@ -11,11 +11,13 @@ import { EnrollmentService } from '../enrollment.service';
 export class DependentsComponent implements OnInit {
   changesSaved = false;
   dependents = [];
+  allowNavigation = false;
 
   constructor(private router: Router, private enrollmentSvc: EnrollmentService) { }
 
   ngOnInit() {
     this.dependents = this.enrollmentSvc.dependents;
+    this.canNavigate();
     // console.log(this.dependents.length);
   }
 
@@ -24,17 +26,29 @@ export class DependentsComponent implements OnInit {
   }
 
   toggleDependents(index: number) {
-    const dependent = this.enrollmentSvc.dependents[index];
-    dependent.covered = !dependent.covered;
+    console.log('index ' + index);
+    if (+index !== 0) {
+      const dependent = this.enrollmentSvc.dependents[index];
+      dependent.covered = !dependent.covered;
+    }
+    this.canNavigate();
   }
 
   onSubmit(form: NgForm) {
     const obj = form.value;
-    console.log(form);
-    // tslint:disable-next-line:max-line-length
-    // this.enrollmentSvc.dependents.push({firstName: obj.firstName, lastName: obj.lastName, middleName: obj.middleName, suffix: obj.suffix, ssn: obj.ssn});
+    console.log(obj);
     this.changesSaved = true;
     this.router.navigate(['/tobacco']);
+  }
+
+  canNavigate() {
+    this.allowNavigation = false;
+    for (let i = 0; i < this.dependents.length; i++) {
+      if (this.dependents[i].covered) {
+        this.allowNavigation = true;
+        break;
+      }
+    }
   }
 
 }
