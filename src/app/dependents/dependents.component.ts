@@ -11,13 +11,12 @@ import { EnrollmentService } from '../enrollment.service';
 export class DependentsComponent implements OnInit {
   changesSaved = false;
   dependents = [];
-  allowNavigation = false;
 
   constructor(private router: Router, private enrollmentSvc: EnrollmentService) { }
 
   ngOnInit() {
     this.dependents = this.enrollmentSvc.dependents;
-    this.canNavigate();
+    // this.canNavigate();
     // console.log(this.dependents.length);
   }
 
@@ -26,12 +25,11 @@ export class DependentsComponent implements OnInit {
   }
 
   toggleDependents(index: number) {
-    console.log('index ' + index);
     if (+index !== 0) {
-      const dependent = this.enrollmentSvc.dependents[index];
+      const dependent = this.enrollmentSvc.dependents[+index];
       dependent.covered = !dependent.covered;
     }
-    this.canNavigate();
+    // this.canNavigate();
   }
 
   onSubmit(form: NgForm) {
@@ -41,14 +39,14 @@ export class DependentsComponent implements OnInit {
     this.router.navigate(['/tobacco']);
   }
 
-  canNavigate() {
-    this.allowNavigation = false;
-    for (let i = 0; i < this.dependents.length; i++) {
-      if (this.dependents[i].covered) {
-        this.allowNavigation = true;
-        break;
-      }
-    }
-  }
+  // canNavigate() {
+  //   this.allowNavigation = false;
+  //   for (let i = 0; i < this.dependents.length; i++) {
+  //     if (this.dependents[i].covered) {
+  //       this.allowNavigation = true;
+  //       break;
+  //     }
+  //   }
+  // }
 
 }
