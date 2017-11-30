@@ -34,7 +34,7 @@ export class DependentsComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     const obj = form.value;
-    console.log(obj);
+    // console.log(obj);
     this.changesSaved = true;
     this.router.navigate(['/tobacco']);
   }

@@ -26,12 +26,12 @@ export class TobaccoComponent implements OnInit {
     for (let i = 0; i < this.dependents.length; i++) {
       this.tobaccoUsage.push(this.dependents[i].tobaccoUsage);
     }
-    console.log(this.tobaccoUsage);
+    // console.log(this.tobaccoUsage);
   }
 
   canDeactivate(form: NgForm): Observable<boolean> | Promise<boolean> | boolean {
-    console.log('in canDeactivate tobacco');
-    console.log(form);
+    // console.log('in canDeactivate tobacco');
+    // console.log(form);
     if (form.dirty && !this.changesSaved) {
       return confirm('Do you want to navigate without saving changes');
     } else {
@@ -43,7 +43,7 @@ export class TobaccoComponent implements OnInit {
   onSubmit(form: NgForm) {
     const obj = form.value;
     // console.log(obj);
-    console.log(this.tobaccoUsage);
+    //  console.log(this.tobaccoUsage);
     for (let i = 0; i < this.dependents.length; i++) {
       this.dependents[i].tobaccoUsage = this.tobaccoUsage[i];
     }

@@ -2,9 +2,13 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <ul class="nav nav-tabs">
-        <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="">Home</a></li>
+        <!--  <li role="presentation" routerLinkActive="active"[routerLinkActiveOptions]="{exact: true}"><a routerLink="">Home</a></li>
         <li role="presentation" routerLinkActive="active"><a routerLink="dependents">Choose Who's Covered</a></li>
-        <li role="presentation" routerLinkActive="active"><a [routerLink]="['tobacco']">Tobacco Usage</a></li>
+        <li role="presentation" routerLinkActive="active"><a [routerLink]="['tobacco']">Tobacco Usage</a></li>-->
+        <!-- <li role="presentation" routerLinkActive #rla1="routerLinkActive" [ngClass]="rla1.isActive ? 'active show' : 'hide'" [routerLinkActiveOptions]="{exact: true}"><a routerLink="">Home {{ rla1 | rlaPrint }}</a></li> -->
+        <li role="presentation" routerLinkActive #rla2="routerLinkActive" [ngClass]="rla2.isActive ? 'active show' : 'hide'"><a routerLink="dependents">Choose Who's Covered</a></li>
+        <li role="presentation" routerLinkActive #rla3="routerLinkActive" [ngClass]="rla3.isActive ? 'active show' : 'hide'"><a routerLink="add">Add Dependent</a></li>
+        <li role="presentation" routerLinkActive #rla4="routerLinkActive" [ngClass]="rla4.isActive ? 'active show' : 'hide'"><a routerLink="tobacco">Tobacco Usage </a></li>
       </ul>
     </div>
   </div>

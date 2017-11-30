@@ -17,6 +17,7 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard-service';
 import { CanDeactivateGuard } from './dependents/add/can-deactivate-guard.service';
 import { TobaccoComponent } from './tobacco/tobacco.component';
+import { RlaPrintPipe } from './pipe/rla-print.pipe';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { TobaccoComponent } from './tobacco/tobacco.component';
     DependentsComponent,
     AddComponent,
     Http404Component,
-    TobaccoComponent
+    TobaccoComponent,
+    RlaPrintPipe
   ],
   imports: [
     BrowserModule,
