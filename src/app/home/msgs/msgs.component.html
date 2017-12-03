@@ -1,10 +1,10 @@
 <div>
   <p style="margin-top: 10px">
-    We'll make suggestions based on what we know about you (age, gender, salary).
-    And we'll ask questions to make sure we have the details right.
+    {{ displayData['msgs.msg1'] || 'Default - We\'ll make suggestions based on what we know about you (age, gender, salary).
+    And we will ask questions to make sure we have the details right.' }}
   </p>
   <div>
-    <a class="btn btn-success form-control" routerLink="/dependents">Next</a>
+    <a class="btn btn-success form-control" routerLink="/dependents">{{ displayData['msgs.nextButton'] || 'Default - Next' }}</a>
     <router-outlet></router-outlet>
   </div>
 

@@ -1,6 +1,6 @@
 <div>
   <p style="margin-top: 10px">
-    Tell us about the tobacco usage of each covered family member
+    {{ displayData['tobaccoUsage.msg1'] || 'Default - Tell us about the tobacco usage of each covered family member' }}
   </p>
   <hr/>
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="form-group">
-        <button class="btn btn-success form-control" type="submit">Next</button>
+        <button class="btn btn-success form-control" type="submit">{{ displayData['tobaccoUsage.nextButton'] || 'Default - Next' }}</button>
         <router-outlet></router-outlet>
       </div>
   </form>

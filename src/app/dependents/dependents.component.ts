@@ -11,11 +11,13 @@ import { EnrollmentService } from '../enrollment.service';
 export class DependentsComponent implements OnInit {
   changesSaved = false;
   dependents = [];
+  displayData = {};
 
   constructor(private router: Router, private enrollmentSvc: EnrollmentService) { }
 
   ngOnInit() {
     this.dependents = this.enrollmentSvc.dependents;
+    this.displayData = this.enrollmentSvc.displayData;
     // this.canNavigate();
     // console.log(this.dependents.length);
   }

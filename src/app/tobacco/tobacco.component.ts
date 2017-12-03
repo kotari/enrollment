@@ -18,6 +18,7 @@ export class TobaccoComponent implements OnInit {
     {name: 'No', value: 'No'},
     {name: 'Yes', value: 'Yes'}
   ];
+  displayData = {};
 
   constructor(private router: Router, private enrollmentSvc: EnrollmentService) { }
 
@@ -26,6 +27,7 @@ export class TobaccoComponent implements OnInit {
     for (let i = 0; i < this.dependents.length; i++) {
       this.tobaccoUsage.push(this.dependents[i].tobaccoUsage);
     }
+    this.displayData = this.enrollmentSvc.displayData;
     // console.log(this.tobaccoUsage);
   }
 

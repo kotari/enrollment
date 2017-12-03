@@ -1,8 +1,8 @@
 <div>
   <p style="margin-top: 10px">
-    Maria, will you be covering anyone other than yourself for health plans (Medical, Dental or Vision)?
+    Maria {{ displayData['dependentSummary.msg1'] || 'Default - , will you be covering anyone other than yourself for health plans (Medical, Dental or Vision)?' }}
     <br />
-    Plan costs are based on whom you choose to cover.
+    {{ displayData['dependentSummary.msg2'] || 'Default - Plan costs are based on whom you choose to cover.' }}
   </p>
   <br />
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
@@ -10,10 +10,10 @@
       <button class="btn form-control" ngClass="{{ dependent.covered ? 'btn-success' : 'btn-default' }}" (click)="toggleDependents([i])" type="button" >{{ dependent.firstName }}&nbsp;{{ dependent.lastName }}</button>
     </div>
     <div class="form-group">
-      <button class="btn btn-default form-control" (click)="addDependent()">Add Spouse or Dependent</button>
+      <button class="btn btn-default form-control" (click)="addDependent()">{{ displayData['dependentSummary.addButton'] || 'Default - Add Spouse or Dependent' }}</button>
     </div>
     <div class="form-group">
-      <button class="btn btn-success form-control" type="submit">Next</button>
+      <button class="btn btn-success form-control" type="submit">{{ displayData['dependentSummary.nextButton'] || 'Default - Next' }}</button>
       <router-outlet></router-outlet>
     </div>
   </form>

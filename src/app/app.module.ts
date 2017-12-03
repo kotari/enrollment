@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 
 
@@ -18,6 +18,7 @@ import { AuthGuard } from './auth-guard-service';
 import { CanDeactivateGuard } from './dependents/add/can-deactivate-guard.service';
 import { TobaccoComponent } from './tobacco/tobacco.component';
 import { RlaPrintPipe } from './pipe/rla-print.pipe';
+import { ConfigService } from './config.service';
 
 
 @NgModule({
@@ -34,10 +35,10 @@ import { RlaPrintPipe } from './pipe/rla-print.pipe';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AuthService, AuthGuard, CanDeactivateGuard],
+  providers: [AuthService, AuthGuard, CanDeactivateGuard, ConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

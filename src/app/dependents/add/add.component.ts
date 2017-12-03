@@ -17,11 +17,12 @@ export class AddComponent implements OnInit {
   middleName = '';
   suffix = '';
   ssn = '';
+  displayData = {};
 
   constructor(private router: Router, private enrollmentSvc: EnrollmentService) { }
 
   ngOnInit() {
-    // console.log(this.enrollmentSvc);
+    this.displayData = this.enrollmentSvc.displayData;
   }
 
   onAddDependent() {

@@ -1,15 +1,16 @@
 <div>
-  <h4>Hi, Maria</h4>
+  {{ dispalyData | async }}
+  <h4>{{ displayData['home.greeting'] || 'Hello'}}, Maria</h4>
   <p>
-    Welcome to your Benefits at Premier Co!
+    {{ displayData['home.welcome'] || 'Welcome to your annual enrollment' }}
   </p>
   
-  <span>Calendar Icon</span> <br/>Enrollment is Open Until date &amp; time
+  <span>Calendar Icon</span> <br/>{{ displayData['home.msg1'] || 'Default - Enrollment is open until 12/31/2017'}}
 
   <!-- <<button class="btn btn-success" (click)="getStarted()">Get Started</button>
   <router-outlet></router-outlet>-->
   <div style="margin-top: 10px">
-  <a class="btn btn-success form-control" routerLink="/msgs">Get Started</a>
+  <a class="btn btn-success form-control" routerLink="/msgs">{{ displayData['home.nextButton'] || 'Default - Get Started' }}</a>
   <router-outlet></router-outlet>
 </div>
 
