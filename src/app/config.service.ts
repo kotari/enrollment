@@ -10,7 +10,11 @@ const API_URL = environment.apiUrl;
 export class ConfigService {
     constructor(private httpClient: HttpClient) {}
 
-    getConfigurartion() {
-        return this.httpClient.get(API_URL + '/flow/ae');
+    // getConfigurartion() {
+    //     return this.httpClient.get(API_URL + '/flow/ae');
+    // }
+
+    getConfiguration(id: string) {
+        return this.httpClient.get(API_URL + '/config/' + id + '.json');
     }
 }

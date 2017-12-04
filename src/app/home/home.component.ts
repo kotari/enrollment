@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class HomeComponent implements OnInit {
   displayData = {};
+  clientId = '';
 
   constructor(private router: Router,
     private route: ActivatedRoute,
@@ -18,13 +19,13 @@ export class HomeComponent implements OnInit {
     private configService: ConfigService) { }
 
   ngOnInit() {
-    const id = this.route.params['id'];
-    console.log(this.route);
+    const id = this.route.snapshot.params['id'];
+    this.clientId = id;
     this.getConfiguration();
   }
 
   getConfiguration() {
-    this.configService.getConfiguration().subscribe(
+    this.configService.getConfiguration(this.clientId).subscribe(
       (data) => {
           this.enrollmentService.displayData = data;
           this.displayData = data;
@@ -32,7 +33,8 @@ export class HomeComponent implements OnInit {
   }
 
   getStarted() {
-    this.router.navigate(['/', 'msgs']);
+    console.log(this.displayData['home.nextButton.action']);
+    this.router.navigate(['/', this.displayData['home.nextButton.action'] == null ? 'msgs' : this.displayData['home.nextButton.action']]);
   }
 
 }

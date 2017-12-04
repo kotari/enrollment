@@ -21,8 +21,8 @@ const appPaths: Routes = [
     { path: 'add', component: AddComponent, canDeactivate: [CanDeactivateGuard]},
     { path: 'tobacco', component: TobaccoComponent, canDeactivate: [CanDeactivateGuard]},
     { path: 'http-404', component: Http404Component},
+    { path: ':id', component: HomeComponent},
     { path: '**', redirectTo: '.http-404'}
-    // { path: 'users/:id/:name', component:UserComponent}
   ];
 
 @NgModule( {

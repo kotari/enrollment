@@ -10,7 +10,7 @@
   <!-- <<button class="btn btn-success" (click)="getStarted()">Get Started</button>
   <router-outlet></router-outlet>-->
   <div style="margin-top: 10px">
-  <a class="btn btn-success form-control" routerLink="/msgs">{{ displayData['home.nextButton'] || 'Default - Get Started' }}</a>
+  <a class="btn btn-success form-control" routerLink="{{ displayData['home.nextButton.action'] == null ? '/msgs' : displayData['home.nextButton.action'] }}">{{ displayData['home.nextButton'] || 'Default - Get Started' }}</a>
   <router-outlet></router-outlet>
 </div>
 
