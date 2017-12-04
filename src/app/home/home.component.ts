@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { EnrollmentService } from '../enrollment.service';
 import { ConfigService } from '../config.service';
 import { Subscription } from 'rxjs/Subscription';
@@ -12,14 +12,19 @@ import { Subscription } from 'rxjs/Subscription';
 export class HomeComponent implements OnInit {
   displayData = {};
 
-  constructor(private router: Router, private enrollmentService: EnrollmentService, private configService: ConfigService) { }
+  constructor(private router: Router,
+    private route: ActivatedRoute,
+    private enrollmentService: EnrollmentService,
+    private configService: ConfigService) { }
 
   ngOnInit() {
+    const id = this.route.params['id'];
+    console.log(this.route);
     this.getConfiguration();
   }
 
   getConfiguration() {
-    this.configService.getConfigurartion().subscribe(
+    this.configService.getConfiguration().subscribe(
       (data) => {
           this.enrollmentService.displayData = data;
           this.displayData = data;

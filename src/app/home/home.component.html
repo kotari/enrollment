@@ -1,8 +1,8 @@
 <div>
   {{ dispalyData | async }}
-  <h4>{{ displayData['home.greeting'] || 'Hello'}}, Maria</h4>
+  <h4>{{ displayData['home.greeting'] || 'Default - Hello'}}, Maria</h4>
   <p>
-    {{ displayData['home.welcome'] || 'Welcome to your annual enrollment' }}
+    {{ displayData['home.welcome'] || 'Default - Welcome to your annual enrollment' }}
   </p>
   
   <span>Calendar Icon</span> <br/>{{ displayData['home.msg1'] || 'Default - Enrollment is open until 12/31/2017'}}

@@ -1,0 +1,17 @@
+{ 
+    "home.greeting": "Hello",
+    "home.welcome": "Welcome to your annual enrollment",
+    "home.msg1": "Enrollment is open until 12/31/2017",
+    "home.nextButton": "Get started",
+    "msgs.msg1": "We'll make suggestions based on what we know about you (age, gender, salary). And we will ask questions to make sure we have the details right.",
+    "msgs.nextButton": "Next",
+    "dependentSummary.msg1": ", will you be covering anyone other than yourself for health plans (Medical, Dental or Vision)?",
+    "dependentSummary.msg2": "Plan costs are based on whom you choose to cover.",
+    "dependentSummary.addButton": "Add spouse or dependent",
+    "dependentSummary.nextButton": "Next",
+    "dependentAdd.msg1": "Add your dependent's information",
+    "dependentAdd.addButton": "Add dependent",
+    "dependentAdd.cancelButton": "Cancel",
+    "tobaccoUsage.msg1": "Tell us about the tobacco usage of each covered family member",
+    "tobaccoUsage.nextButton": "Next"
+}
