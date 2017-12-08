@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AppComponent } from './app.component';
+import { EnrollmentComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MsgsComponent } from './home/msgs/msgs.component';
 import { DependentsComponent } from './dependents/dependents.component';
@@ -29,11 +29,12 @@ const appPaths: Routes = [
     imports: [
         // RouterModule.forRoot(appPaths, {useHash: true})
         RouterModule.forRoot(appPaths)
+        // RouterModule.forChild(appPaths)
     ],
     exports: [
         RouterModule
     ]
 })
-export class AppRoutingModule {
+export class EnollmentRoutingModule {
 
 }
